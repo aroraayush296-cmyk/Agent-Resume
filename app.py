@@ -27,8 +27,8 @@ st.sidebar.image("bg.png")
 
 
 #==========API KEYS===================
-TAVILY_API_KEY = st.sidebar.text_input("Tavily-API",type="password)
-GOOGLE_API_KEY = st.sidebar.text_input("Gemini-API",type="password)
+TAVILY_API_KEY = st.sidebar.text_input("Tavily-API",type="password")
+GOOGLE_API_KEY = st.sidebar.text_input("Gemini-API",type="password")
 model = ChatGoogleGenerativeAI(
     model="gemini-3.5-flash-lite",
     google_api_key=GOOGLE_API_KEY
