@@ -21,6 +21,9 @@ st.write("""This app helps user to build customized professional resume with lat
 job apply links""")
 
 st.image("bg.png")
+st.sidebar.title("Fill important details")
+st.sidebar.image("bg.png")
+
 
 
 #==========API KEYS===================
