@@ -45,8 +45,8 @@ def search_latest_news_jobs(query):
     response = client.search(query)
     return response
     def main_agent(agent, query):
-    """This is main agent, or leader agent
-    orchestrate sub agents"""
+        """This is main agent, or leader agent
+        orchestrate sub agents"""
 
     # Giving prompt to create detailed prompt
     # for code generation
