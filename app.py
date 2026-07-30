@@ -61,7 +61,7 @@ profile = st.sidebar.multiselect(
 
 #========Get user input=======
 st.markdown("""### Get user info""")
-user_info=st.txt_area("""Write your resume description:"""")
+user_info=st.txt_area("""Write Your Resume Description: """)
 
 
 model = ChatGoogleGenerativeAI(
