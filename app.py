@@ -12,16 +12,28 @@ import time
 from PIL import Image
 import pandas as pd
 import numpy as np
+
+# To show web-app:complete page layout
+st.set_page_config(layout="wide")
+
+# To give title
+st.title("AI Resume Generator")
+st.write("""This app helps user to build customized professional resume with latest
+job apply links""")
+
+st.image("bg.png")
+
+
 #==========API KEYS===================
 TAVILY_API_KEY = "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"
 GOOGLE_API_KEY = "AQ.Ab8RN6Lul158qu9DDZjeZVNPjZX7onyRPPP9XmLnUoT6DSW1Jg"
-odel = ChatGoogleGenerativeAI(
+model = ChatGoogleGenerativeAI(
     model="gemini-3.5-flash-lite",
     google_api_key=GOOGLE_API_KEY
 )
 
-response = model.invoke("Hello Buddy!")
-response.content[-1]['text']
+# response = model.invoke("Hello Buddy!")
+# response.content[-1]['text']
 def search_latest_news_jobs(query):
     """This function helps to fetch latest
     news or jobs related article using
@@ -40,18 +52,18 @@ def search_latest_news_jobs(query):
     # Giving prompt to create detailed prompt
     # for code generation
     prompt = """You are AI assistant and
-below given is a prompt, your
-task is to give detailed prompt for
-this.
-You are a professional Resume generator
-where user will give their personal info,
-you have to create detailed Resume
-for students or professional one,
-it must be with dynamic UI and UX and,
-with advanced CSS Professional Designing
-Make sure to give output in HTML format only
-no markdowns allowed
-"""
+    below given is a prompt, your
+    task is to give detailed prompt for
+    this.
+    You are a professional Resume generator
+    where user will give their personal info,
+    you have to create detailed Resume
+    for students or professional one,
+    it must be with dynamic UI and UX and,
+    with advanced CSS Professional Designing
+    Make sure to give output in HTML format only
+    no markdowns allowed
+    """
 
     response = agent.invoke({
         'messages': [
@@ -69,10 +81,10 @@ no markdowns allowed
         f.write(detailed_prompt)
 
     user_details = f"""Below Given is a user details
-generate Resume based on that, if not
-given keep: Default Resume: Python Developer
-user details: {query}"""
-   final_prompt = prompt + detailed_prompt + user_details
+    generate Resume based on that, if not
+    given keep: Default Resume: Python Developer
+    user details: {query}"""
+    final_prompt = prompt + detailed_prompt + user_details
 
     # CODE GENERATION
    response = agent.invoke({
@@ -89,15 +101,15 @@ user details: {query}"""
     return code
 
 
-code = main_agent(agent, "ALAN TURING, GEN AI EXPERT")
+#code = main_agent(agent, "ALAN TURING, GEN AI EXPERT")
 
-from IPython import display as DISPLAY
-DISPLAY.HTML(code)
+#from IPython import display as DISPLAY
+#DISPLAY.HTML(code)
 # Agent creation
 agent=create_agent(
     model=model,
     tools=[search_latest_news_jobs])
-agent
+#agent
 def get_jobs(agent,
              Location="Noida,Delhi",
              Profile="Data Analysts, AI Engineer"):
@@ -106,14 +118,14 @@ def get_jobs(agent,
     Profile = "Data Analysts, AI Engineer"
 
     prompt = f"""Based on user given Job profile,
-fetch latest jobs or job apply article
-using Naukri, Linkedin, Indeed, or all popular
-Job apply platforms, Show Results with
-JOB PROFILE NAME, LOCATION, SALARY, COMPANY NAME,
-SHOW jobs only related to given
-{Location} and {Profile}. Output must be in
-Professional HTML Naukri theme cards with Dynamic Design,
-Show atleast Top 10-20 results with direct apply link"""
+    fetch latest jobs or job apply article
+    using Naukri, Linkedin, Indeed, or all popular
+    Job apply platforms, Show Results with
+    JOB PROFILE NAME, LOCATION, SALARY, COMPANY NAME,
+    SHOW jobs only related to given
+    {Location} and {Profile}. Output must be in
+    Professional HTML Naukri theme cards with Dynamic Design,
+    Show atleast Top 10-20 results with direct apply link"""
 
     response = agent.invoke({
         'messages': [{
@@ -127,5 +139,5 @@ Show atleast Top 10-20 results with direct apply link"""
     return code
 
 
-code = get_jobs(agent)
-DISPLAY.HTML(code)
+#code = get_jobs(agent)
+#DISPLAY.HTML(code)
