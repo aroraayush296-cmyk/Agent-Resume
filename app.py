@@ -86,7 +86,7 @@ def search_latest_news_jobs(query):
     final_prompt = prompt + detailed_prompt + user_details
 
     # CODE GENERATION
-   response = agent.invoke({
+    response = agent.invoke({
         'messages': [
             {
                 'role': 'user',
