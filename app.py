@@ -20,9 +20,9 @@ st.title("AI Resume Generator")
 st.write("""This app helps user to build customized professional resume with latest
 job apply links""")
 
-st.image("bg.png")
+st.image("https://raw.githubusercontent.com/aroraayush296-cmyk/Agent-Resume/refs/heads/main/bg.png")
 st.sidebar.title("Fill important details")
-st.sidebar.image("bg.png")
+st.sidebar.image("https://raw.githubusercontent.com/aroraayush296-cmyk/Agent-Resume/refs/heads/main/bg.png")
 
 
 
