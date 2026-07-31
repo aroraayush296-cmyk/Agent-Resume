@@ -179,8 +179,8 @@ def get_jobs(agent,
 
 if st.button("Generate Resume"):
      with st.spinner("Agent Running"):
-     code = main_agent(agent, user_info)
-     st.html(
+      code = main_agent(agent, user_info)
+      st.html(
             code,
             width="stretch",
             unsafe_allow_javascript=True
