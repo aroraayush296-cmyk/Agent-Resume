@@ -36,6 +36,10 @@ if not all(all_API):
     st.stop()
 elif all(all_API):
     st.success("API Keys loaded successfully")
+    model = ChatGoogleGenerativeAI(
+    model="gemini-3.5-flash-lite",
+    google_api_key=GOOGLE_API_KEY
+    )
 else:
     st.info("Pass all API keys")
 
@@ -62,12 +66,6 @@ profile = st.sidebar.multiselect(
 #========Get user input=======
 st.markdown("""### Get user info""")
 user_info=st.text_area("""Write Your Resume Description:""")
-
-
-model = ChatGoogleGenerativeAI(
-    model="gemini-3.5-flash-lite",
-    google_api_key=GOOGLE_API_KEY
-)
 
 # response = model.invoke("Hello Buddy!")
 # response.content[-1]['text']
